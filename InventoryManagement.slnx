@@ -5,8 +5,8 @@
     <Project Path="src/Adapters/Primary/InventoryManagement.Api/InventoryManagement.Api.csproj" Id="fcf4930f-e0de-4c5b-a3c0-c1d6ceac65fc" />
   </Folder>
   <Folder Name="/src/Adapters/Secondary/">
+    <Project Path="InventoryManagement.Infrastructure.Email/InventoryManagement.Infrastructure.Email.csproj" Id="1a23665a-49f1-4cdb-a889-411a5abd3b2e" />
     <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.AuditLog/InventoryManagement.Infrastructure.AuditLog.csproj" Id="5e9ce003-d048-471d-b694-37d9672644e9" />
-    <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.Email/InventoryManagement.Infrastructure.Email.csproj" Id="4b6f0e0a-c33b-47c3-8494-b7e2316f98e0" />
     <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.Persistence/InventoryManagement.Infrastructure.Persistence.csproj" Id="64308e85-e90b-4056-b157-793362b60ac5" />
     <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.Shared/InventoryManagement.Infrastructure.Shared.csproj" Id="9923f69c-974c-426f-a5b7-2460dd2ffc30" />
     <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.Wms/InventoryManagement.Infrastructure.Wms.csproj" Id="d96ac54d-93e7-45c1-844b-b519681e9459" />
