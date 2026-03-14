@@ -15,9 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\InventoryManagement.Infrastructure.Email\InventoryManagement.Infrastructure.Email.csproj" />
     <ProjectReference Include="..\..\..\Core\InventoryManagement.Application\InventoryManagement.Application.csproj" />
     <ProjectReference Include="..\..\Secondary\InventoryManagement.Infrastructure.AuditLog\InventoryManagement.Infrastructure.AuditLog.csproj" />
+    <ProjectReference Include="..\..\Secondary\InventoryManagement.Infrastructure.Email\InventoryManagement.Infrastructure.Email.csproj" />
     <ProjectReference Include="..\..\Secondary\InventoryManagement.Infrastructure.Persistence\InventoryManagement.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\..\Secondary\InventoryManagement.Infrastructure.Shared\InventoryManagement.Infrastructure.Shared.csproj" />
     <ProjectReference Include="..\..\Secondary\InventoryManagement.Infrastructure.Wms\InventoryManagement.Infrastructure.Wms.csproj" />
