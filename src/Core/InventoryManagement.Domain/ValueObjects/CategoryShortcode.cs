@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using InventoryManagement.Domain.Constants;
 using InventoryManagement.Domain.Exceptions;
 
 namespace InventoryManagement.Domain.ValueObjects;
@@ -17,12 +18,12 @@ public sealed record CategoryShortcode
     public static CategoryShortcode Create(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new DomainException("Category shortcode is required.");
+            throw new DomainException(SharedMessages.CategoryShortcodeIsRequired);
 
         var normalized = value.Trim().ToUpperInvariant();
 
         if (!ValidPattern.IsMatch(normalized))
-            throw new DomainException("Category shortcode must contain only letters, numbers, underscore or hyphen.");
+            throw new DomainException(SharedMessages.InvalidCategoryShortcodeFormat);
 
         return new CategoryShortcode(normalized);
     }

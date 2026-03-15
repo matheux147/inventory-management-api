@@ -1,4 +1,5 @@
-﻿using InventoryManagement.Domain.Exceptions;
+﻿using InventoryManagement.Domain.Constants;
+using InventoryManagement.Domain.Exceptions;
 using InventoryManagement.Domain.ValueObjects;
 
 namespace InventoryManagement.Domain.Entities;
@@ -39,7 +40,7 @@ public class Category : Entity
     public void SetParent(Category? parentCategory)
     {
         if (parentCategory is not null && parentCategory.Id == Id)
-            throw new DomainException("A category cannot be its own parent.");
+            throw new DomainException(CategoryMessages.CategoryCannotBeItsOwnParent);
 
         if (ParentCategory is not null)
             ParentCategory.RemoveChildInternal(this);
@@ -54,14 +55,14 @@ public class Category : Entity
     private void SetName(string name)
     {
         if (string.IsNullOrWhiteSpace(name))
-            throw new DomainException("Category name is required.");
+            throw new DomainException(CategoryMessages.CategoryNameIsRequired);
 
         Name = name.Trim();
     }
 
     private void SetShortcode(CategoryShortcode shortcode)
     {
-        Shortcode = shortcode ?? throw new DomainException("Category shortcode is required.");
+        Shortcode = shortcode ?? throw new DomainException(CategoryMessages.CategoryShortcodeIsRequired);
     }
 
     private void AddChildInternal(Category child)

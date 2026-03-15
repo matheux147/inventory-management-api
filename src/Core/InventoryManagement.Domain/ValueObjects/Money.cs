@@ -1,4 +1,5 @@
-﻿using InventoryManagement.Domain.Exceptions;
+﻿using InventoryManagement.Domain.Constants;
+using InventoryManagement.Domain.Exceptions;
 
 namespace InventoryManagement.Domain.ValueObjects;
 
@@ -16,10 +17,10 @@ public sealed record Money
     public static Money Create(decimal amount, CurrencyCode currency)
     {
         if (amount < 0)
-            throw new DomainException("Amount cannot be negative.");
+            throw new DomainException(SharedMessages.AmountCannotBeNegative);
 
         if (currency is null)
-            throw new DomainException("Currency is required.");
+            throw new DomainException(SharedMessages.CurrencyIsRequired);
 
         return new Money(amount, currency);
     }

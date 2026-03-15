@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using InventoryManagement.Domain.Constants;
 using InventoryManagement.Domain.Exceptions;
 
 namespace InventoryManagement.Domain.ValueObjects;
@@ -19,12 +20,12 @@ public sealed record CurrencyCode
     public static CurrencyCode Create(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new DomainException("Currency code is required.");
+            throw new DomainException(SharedMessages.CurrencyCodeIsRequired);
 
         var normalized = value.Trim().ToUpperInvariant();
 
         if (!ValidPattern.IsMatch(normalized))
-            throw new DomainException("Currency code must be a valid ISO-4217 style code with 3 letters.");
+            throw new DomainException(SharedMessages.InvalidCurrencyCodeFormat);
 
         return new CurrencyCode(normalized);
     }

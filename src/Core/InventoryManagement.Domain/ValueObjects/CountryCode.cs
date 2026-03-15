@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using InventoryManagement.Domain.Constants;
 using InventoryManagement.Domain.Exceptions;
 
 namespace InventoryManagement.Domain.ValueObjects;
@@ -17,12 +18,12 @@ public sealed record CountryCode
     public static CountryCode Create(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new DomainException("Country code is required.");
+            throw new DomainException(SharedMessages.CountryCodeIsRequired);
 
         var normalized = value.Trim().ToUpperInvariant();
 
         if (!ValidPattern.IsMatch(normalized))
-            throw new DomainException("Country code must be a valid ISO-3166 alpha-2 style code with 2 letters.");
+            throw new DomainException(SharedMessages.InvalidCountryCodeFormat);
 
         return new CountryCode(normalized);
     }

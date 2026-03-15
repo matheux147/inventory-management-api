@@ -1,4 +1,5 @@
 ﻿using System.Net.Mail;
+using InventoryManagement.Domain.Constants;
 using InventoryManagement.Domain.Exceptions;
 
 namespace InventoryManagement.Domain.ValueObjects;
@@ -15,7 +16,7 @@ public sealed record Email
     public static Email Create(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new DomainException("Email is required.");
+            throw new DomainException(SharedMessages.EmailIsRequired);
 
         var normalized = value.Trim().ToLowerInvariant();
 
@@ -25,7 +26,7 @@ public sealed record Email
         }
         catch (FormatException)
         {
-            throw new DomainException("Email is invalid.");
+            throw new DomainException(SharedMessages.InvalidEmailFormat);
         }
 
         return new Email(normalized);

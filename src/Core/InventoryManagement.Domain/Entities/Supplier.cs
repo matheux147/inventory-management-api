@@ -1,4 +1,5 @@
-﻿using InventoryManagement.Domain.Exceptions;
+﻿using InventoryManagement.Domain.Constants;
+using InventoryManagement.Domain.Exceptions;
 using InventoryManagement.Domain.ValueObjects;
 
 namespace InventoryManagement.Domain.Entities;
@@ -49,23 +50,23 @@ public class Supplier : Entity
     private void SetName(string name)
     {
         if (string.IsNullOrWhiteSpace(name))
-            throw new DomainException("Supplier name is required.");
+            throw new DomainException(SupplierMessages.SupplierNameIsRequired);
 
         Name = name.Trim();
     }
 
     private void SetEmail(Email email)
     {
-        Email = email ?? throw new DomainException("Supplier email is required.");
+        Email = email ?? throw new DomainException(SupplierMessages.SupplierEmailIsRequired);
     }
 
     private void SetCurrency(CurrencyCode currency)
     {
-        Currency = currency ?? throw new DomainException("Supplier currency is required.");
+        Currency = currency ?? throw new DomainException(SupplierMessages.SupplierCurrencyIsRequired);
     }
 
     private void SetCountry(CountryCode country)
     {
-        Country = country ?? throw new DomainException("Supplier country is required.");
+        Country = country ?? throw new DomainException(SupplierMessages.SupplierCountryIsRequired);
     }
 }

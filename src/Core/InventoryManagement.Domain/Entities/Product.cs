@@ -1,4 +1,5 @@
-﻿using InventoryManagement.Domain.Enums;
+﻿using InventoryManagement.Domain.Constants;
+using InventoryManagement.Domain.Enums;
 using InventoryManagement.Domain.Exceptions;
 using InventoryManagement.Domain.ValueObjects;
 
@@ -58,16 +59,16 @@ public class Product : Entity
     public void Sell(DateTime soldDate)
     {
         if (Status == ProductStatus.Cancelled)
-            throw new DomainException("Cancelled product cannot be sold.");
+            throw new DomainException(ProductMessages.CancelledProductCannotBeSold);
 
         if (Status == ProductStatus.Returned)
-            throw new DomainException("Returned product cannot be sold.");
+            throw new DomainException(ProductMessages.ReturnedProductCannotBeSold);
 
         if (Status == ProductStatus.Sold)
-            throw new DomainException("Product is already sold.");
+            throw new DomainException(ProductMessages.ProductAlreadySold);
 
         if (soldDate < AcquireDate)
-            throw new DomainException("Sold date cannot be earlier than acquire date.");
+            throw new DomainException(ProductMessages.SoldDateCannotBeEarlierThanAcquireDate);
 
         SoldDate = soldDate;
         Status = ProductStatus.Sold;
@@ -76,16 +77,16 @@ public class Product : Entity
     public void Cancel(DateTime cancelDate)
     {
         if (Status == ProductStatus.Cancelled)
-            throw new DomainException("Product is already cancelled.");
+            throw new DomainException(ProductMessages.ProductAlreadyCancelled);
 
         if (Status == ProductStatus.Returned)
-            throw new DomainException("Returned product cannot be cancelled.");
+            throw new DomainException(ProductMessages.ReturnedProductCannotBeCancelled);
 
         if (cancelDate < AcquireDate)
-            throw new DomainException("Cancel date cannot be earlier than acquire date.");
+            throw new DomainException(ProductMessages.CancelDateCannotBeEarlierThanAcquireDate);
 
         if (Status == ProductStatus.Sold && SoldDate.HasValue && cancelDate < SoldDate.Value)
-            throw new DomainException("Cancel date cannot be earlier than sold date.");
+            throw new DomainException(ProductMessages.CancelDateCannotBeEarlierThanSoldDate);
 
         CancelDate = cancelDate;
         Status = ProductStatus.Cancelled;
@@ -94,19 +95,19 @@ public class Product : Entity
     public void Return(DateTime returnDate)
     {
         if (Status == ProductStatus.Returned)
-            throw new DomainException("Product is already returned.");
+            throw new DomainException(ProductMessages.ProductAlreadyReturned);
 
         if (Status == ProductStatus.Cancelled)
-            throw new DomainException("Cancelled product cannot be returned.");
+            throw new DomainException(ProductMessages.CancelledProductCannotBeReturned);
 
         if (Status != ProductStatus.Sold)
-            throw new DomainException("Only sold products can be returned.");
+            throw new DomainException(ProductMessages.OnlySoldProductsCanBeReturned);
 
         if (!SoldDate.HasValue)
-            throw new DomainException("Sold date must exist before returning a product.");
+            throw new DomainException(ProductMessages.SoldDateMustExistBeforeReturning);
 
         if (returnDate < SoldDate.Value)
-            throw new DomainException("Return date cannot be earlier than sold date.");
+            throw new DomainException(ProductMessages.ReturnDateCannotBeEarlierThanSoldDate);
 
         ReturnDate = returnDate;
         Status = ProductStatus.Returned;
@@ -114,20 +115,20 @@ public class Product : Entity
 
     private void SetSupplier(Supplier supplier)
     {
-        Supplier = supplier ?? throw new DomainException("Supplier is required.");
+        Supplier = supplier ?? throw new DomainException(ProductMessages.SupplierIsRequired);
         SupplierId = supplier.Id;
     }
 
     private void SetCategory(Category category)
     {
-        Category = category ?? throw new DomainException("Category is required.");
+        Category = category ?? throw new DomainException(ProductMessages.CategoryIsRequired);
         CategoryId = category.Id;
     }
 
     private void SetDescription(string description)
     {
         if (string.IsNullOrWhiteSpace(description))
-            throw new DomainException("Product description is required.");
+            throw new DomainException(ProductMessages.ProductDescriptionIsRequired);
 
         Description = description.Trim();
     }
@@ -135,16 +136,16 @@ public class Product : Entity
     private void SetAcquisitionCosts(Money acquisitionCost, Money acquisitionCostUsd)
     {
         if (acquisitionCost is null)
-            throw new DomainException("Acquisition cost is required.");
+            throw new DomainException(ProductMessages.AcquisitionCostIsRequired);
 
         if (acquisitionCostUsd is null)
-            throw new DomainException("Acquisition cost in USD is required.");
+            throw new DomainException(ProductMessages.AcquisitionCostInUsdIsRequired);
 
         if (acquisitionCost.Currency != Supplier.Currency)
-            throw new DomainException("Acquisition cost currency must match supplier currency.");
+            throw new DomainException(ProductMessages.AcquisitionCostCurrencyMustMatchSupplier);
 
         if (acquisitionCostUsd.Currency != CurrencyCode.USD)
-            throw new DomainException("Acquisition cost in USD must use USD currency.");
+            throw new DomainException(ProductMessages.AcquisitionCostInUsdMustUseUsd);
 
         AcquisitionCost = acquisitionCost;
         AcquisitionCostUsd = acquisitionCostUsd;
@@ -153,7 +154,7 @@ public class Product : Entity
     private void SetAcquireDate(DateTime acquireDate)
     {
         if (acquireDate == default)
-            throw new DomainException("Acquire date is required.");
+            throw new DomainException(ProductMessages.AcquireDateIsRequired);
 
         AcquireDate = acquireDate;
     }
