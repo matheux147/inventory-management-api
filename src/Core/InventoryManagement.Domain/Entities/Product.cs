@@ -15,8 +15,8 @@ public class Product : Entity
 
     public string Description { get; private set; } = null!;
 
-    public Money AcquisitionCost { get; private set; } = null!;
-    public Money AcquisitionCostUsd { get; private set; } = null!;
+    public decimal AcquisitionCost { get; private set; }
+    public decimal AcquisitionCostUsd { get; private set; }
 
     public DateTime AcquireDate { get; private set; }
     public DateTime? SoldDate { get; private set; }
@@ -33,8 +33,8 @@ public class Product : Entity
         Supplier supplier,
         Category category,
         string description,
-        Money acquisitionCost,
-        Money acquisitionCostUsd,
+        decimal acquisitionCost,
+        decimal acquisitionCostUsd,
         DateTime acquireDate)
     {
         SetSupplier(supplier);
@@ -133,19 +133,13 @@ public class Product : Entity
         Description = description.Trim();
     }
 
-    private void SetAcquisitionCosts(Money acquisitionCost, Money acquisitionCostUsd)
+    private void SetAcquisitionCosts(decimal acquisitionCost, decimal acquisitionCostUsd)
     {
-        if (acquisitionCost is null)
+        if (acquisitionCost <= 0)
             throw new DomainException(ProductMessages.AcquisitionCostIsRequired);
 
-        if (acquisitionCostUsd is null)
+        if (acquisitionCostUsd <= 0)
             throw new DomainException(ProductMessages.AcquisitionCostInUsdIsRequired);
-
-        if (acquisitionCost.Currency != Supplier.Currency)
-            throw new DomainException(ProductMessages.AcquisitionCostCurrencyMustMatchSupplier);
-
-        if (acquisitionCostUsd.Currency != CurrencyCode.USD)
-            throw new DomainException(ProductMessages.AcquisitionCostInUsdMustUseUsd);
 
         AcquisitionCost = acquisitionCost;
         AcquisitionCostUsd = acquisitionCostUsd;

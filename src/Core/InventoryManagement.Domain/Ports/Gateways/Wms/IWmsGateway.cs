@@ -1,12 +1,14 @@
-﻿namespace InventoryManagement.Domain.Ports.Gateways.Wms;
+﻿using InventoryManagement.Domain.Abstractions;
+
+namespace InventoryManagement.Domain.Ports.Gateways.Wms;
 
 public interface IWmsGateway
 {
-    Task<WmsCreateProductResponseDto> CreateProductAsync(
+    Task<Result<WmsCreateProductResponseDto>> CreateProductAsync(
         WmsCreateProductRequestDto request,
         CancellationToken cancellationToken = default);
 
-    Task DispatchProductAsync(
+    Task<Result> DispatchProductAsync(
         WmsDispatchProductRequestDto request,
         CancellationToken cancellationToken = default);
 }
