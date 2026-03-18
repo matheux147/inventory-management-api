@@ -136,4 +136,12 @@
 	<data name="product.acquisition_cost.currency_mismatch"><value>A moeda do custo de aquisição deve corresponder à moeda do fornecedor.</value></data>
 	<data name="product.acquisition_cost_usd.must_be_usd"><value>O custo de aquisição em USD deve utilizar a moeda USD.</value></data>
 	<data name="product.acquire_date.required"><value>A data de aquisição é obrigatória.</value></data>
+	<data name="INTEGRATION_CANCELLED"><value>A integração foi cancelada.</value></data>
+	<data name="WMS_INVALID_INPUT"><value>Entrada inválida para integração com WMS.</value></data>
+	<data name="WMS_CREATE_FAILED"><value>Falha ao criar registro no WMS.</value></data>
+	<data name="WMS_DISPATCH_FAILED"><value>Falha ao despachar registro no WMS.</value></data>
+	<data name="AUDITLOG_INVALID_INPUT"><value>Entrada inválida para integração com Audit Log.</value></data>
+	<data name="AUDITLOG_CREATE_FAILED"><value>Falha ao criar registro de Audit Log.</value></data>
+	<data name="EMAIL_INVALID_INPUT"><value>Entrada inválida para integração de E-mail.</value></data>
+	<data name="EMAIL_SEND_FAILED"><value>Falha ao enviar e-mail.</value></data>
 </root>

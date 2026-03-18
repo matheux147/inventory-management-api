@@ -136,4 +136,12 @@
 	<data name="product.acquisition_cost.currency_mismatch"><value>Acquisition cost currency must match supplier currency.</value></data>
 	<data name="product.acquisition_cost_usd.must_be_usd"><value>Acquisition cost in USD must use USD currency.</value></data>
 	<data name="product.acquire_date.required"><value>Acquire date is required.</value></data>
+	<data name="INTEGRATION_CANCELLED"><value>Integration was cancelled.</value></data>
+	<data name="WMS_INVALID_INPUT"><value>Invalid input for WMS integration.</value></data>
+	<data name="WMS_CREATE_FAILED"><value>Failed to create WMS record.</value></data>
+	<data name="WMS_DISPATCH_FAILED"><value>Failed to dispatch WMS record.</value></data>
+	<data name="AUDITLOG_INVALID_INPUT"><value>Invalid input for Audit Log integration.</value></data>
+	<data name="AUDITLOG_CREATE_FAILED"><value>Failed to create Audit Log record.</value></data>
+	<data name="EMAIL_INVALID_INPUT"><value>Invalid input for Email integration.</value></data>
+	<data name="EMAIL_SEND_FAILED"><value>Failed to send email.</value></data>
 </root>

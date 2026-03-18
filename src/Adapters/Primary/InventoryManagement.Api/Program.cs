@@ -1,7 +1,26 @@
 using System.Globalization;
 using InventoryManagement.Api.Middlewares;
+using InventoryManagement.Infrastructure.AuditLog;
+using InventoryManagement.Infrastructure.Email;
+using InventoryManagement.Infrastructure.Persistence;
+using InventoryManagement.Infrastructure.Wms;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddPersistence(
+    builder.Configuration.GetConnectionString("DefaultConnection")!);
+
+builder.Services.AddPersistence(
+    builder.Configuration.GetConnectionString("DefaultConnection")!);
+
+builder.Services.AddWmsInfrastructure(
+    builder.Configuration.GetSection("Integrations:Wms"));
+
+builder.Services.AddAuditLogInfrastructure(
+    builder.Configuration.GetSection("Integrations:AuditLog"));
+
+builder.Services.AddEmailInfrastructure(
+    builder.Configuration.GetSection("Integrations:Email"));
 
 builder.Services.AddLocalization(options =>
 {
