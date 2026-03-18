@@ -29,7 +29,24 @@ public class Product : Entity
     {
     }
 
-    public Product(
+    public static Product Create(
+        Supplier supplier,
+        Category category,
+        string description,
+        decimal acquisitionCost,
+        decimal acquisitionCostUsd,
+        DateTime acquireDate)
+    {
+        return new Product(
+            supplier,
+            category,
+            description,
+            acquisitionCost,
+            acquisitionCostUsd,
+            acquireDate);
+    }
+
+    private Product(
         Supplier supplier,
         Category category,
         string description,

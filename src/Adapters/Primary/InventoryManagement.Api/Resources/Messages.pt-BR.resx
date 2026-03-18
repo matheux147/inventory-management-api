@@ -136,12 +136,19 @@
 	<data name="product.acquisition_cost.currency_mismatch"><value>A moeda do custo de aquisição deve corresponder à moeda do fornecedor.</value></data>
 	<data name="product.acquisition_cost_usd.must_be_usd"><value>O custo de aquisição em USD deve utilizar a moeda USD.</value></data>
 	<data name="product.acquire_date.required"><value>A data de aquisição é obrigatória.</value></data>
-	<data name="INTEGRATION_CANCELLED"><value>A integração foi cancelada.</value></data>
-	<data name="WMS_INVALID_INPUT"><value>Entrada inválida para integração com WMS.</value></data>
-	<data name="WMS_CREATE_FAILED"><value>Falha ao criar registro no WMS.</value></data>
-	<data name="WMS_DISPATCH_FAILED"><value>Falha ao despachar registro no WMS.</value></data>
-	<data name="AUDITLOG_INVALID_INPUT"><value>Entrada inválida para integração com Audit Log.</value></data>
-	<data name="AUDITLOG_CREATE_FAILED"><value>Falha ao criar registro de Audit Log.</value></data>
-	<data name="EMAIL_INVALID_INPUT"><value>Entrada inválida para integração de E-mail.</value></data>
-	<data name="EMAIL_SEND_FAILED"><value>Falha ao enviar e-mail.</value></data>
+	<data name="integration.cancelled"><value>A integração foi cancelada.</value></data>
+	<data name="wms.invalid_input"><value>Entrada inválida para integração com WMS.</value></data>
+	<data name="wms.create_failed"><value>Falha ao criar registro no WMS.</value></data>
+	<data name="wms.dispatch_failed"><value>Falha ao despachar registro no WMS.</value></data>
+	<data name="auditlog.invalid_input"><value>Entrada inválida para integração com Audit Log.</value></data>
+	<data name="auditlog.create_failed"><value>Falha ao criar registro de Audit Log.</value></data>
+	<data name="email.invalid_input"><value>Entrada inválida para integração de E-mail.</value></data>
+	<data name="email.send_failed"><value>Falha ao enviar e-mail.</value></data>
+	<data name="category.not_found"><value>Categoria não encontrada.</value></data>
+	<data name="category.shortcode_already_exists"><value>O shortcode da categoria já existe.</value></data>
+	<data name="category.has_children"><value>A categoria possui categorias filhas.</value></data>
+	<data name="category.has_products"><value>A categoria possui produtos vinculados.</value></data>
+	<data name="supplier.not_found"><value>Fornecedor não encontrado.</value></data>
+	<data name="supplier.email_already_exists"><value>O e-mail do fornecedor já está em uso.</value></data>
+	<data name="product.not_found"><value>Produto não encontrado.</value></data>
 </root>

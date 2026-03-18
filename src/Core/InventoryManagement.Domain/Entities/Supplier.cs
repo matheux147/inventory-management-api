@@ -15,7 +15,20 @@ public class Supplier : Entity
     {
     }
 
-    public Supplier(
+    public static Supplier Create(
+        string name,
+        Email email,
+        CurrencyCode currency,
+        CountryCode country)
+    {
+        return new Supplier(
+            name,
+            email,
+            currency,
+            country);
+    }
+
+    private Supplier(
         string name,
         Email email,
         CurrencyCode currency,

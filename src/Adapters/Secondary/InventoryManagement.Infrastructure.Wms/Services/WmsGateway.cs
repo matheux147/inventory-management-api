@@ -7,23 +7,15 @@ using System.Net.Http.Json;
 
 namespace InventoryManagement.Infrastructure.Wms.Services;
 
-public sealed class WmsGateway : IWmsGateway
+public sealed class WmsGateway(HttpClient httpClient, ILogger<WmsGateway> logger) : IWmsGateway
 {
     private const string CreateSuccessMessage = "Product successfully created in the warehouse.";
     private const string InvalidInputMessage = "Invalid input.";
     private const string DispatchSuccessMessage = "Product dispatch successfully triggered.";
     private const string ProductNotFoundMessage = "Product not found.";
 
-    private readonly HttpClient _httpClient;
-    private readonly ILogger<WmsGateway> _logger;
-
-    public WmsGateway(
-        HttpClient httpClient,
-        ILogger<WmsGateway> logger)
-    {
-        _httpClient = httpClient;
-        _logger = logger;
-    }
+    private readonly HttpClient _httpClient = httpClient;
+    private readonly ILogger<WmsGateway> _logger = logger;
 
     public async Task<Result<WmsCreateProductResponseDto>> CreateProductAsync(
         WmsCreateProductRequestDto request,
@@ -119,10 +111,10 @@ public sealed class WmsGateway : IWmsGateway
     }
 
     public async Task<Result> DispatchProductAsync(
-        WmsDispatchProductRequestDto request,
+        Guid productId,
         CancellationToken cancellationToken = default)
     {
-        if (request is null || request.ProductId == Guid.Empty)
+        if (productId == Guid.Empty)
         {
             using var notFoundResponse = new HttpResponseMessage(HttpStatusCode.NotFound)
             {
@@ -145,7 +137,7 @@ public sealed class WmsGateway : IWmsGateway
         try
         {
             response = await _httpClient.PostAsync(
-                $"products/{request.ProductId}/dispatch",
+                $"products/{productId}/dispatch",
                 content: null,
                 cancellationToken);
         }
@@ -153,7 +145,7 @@ public sealed class WmsGateway : IWmsGateway
         {
             _logger.LogWarning(
                 "WMS dispatch request was cancelled for ProductId {ProductId}.",
-                request.ProductId);
+                productId);
 
             return Result.Failure(IntegrationErrors.Cancelled);
         }
@@ -162,7 +154,7 @@ public sealed class WmsGateway : IWmsGateway
             _logger.LogWarning(
                 ex,
                 "WMS dispatch request failed for ProductId {ProductId}. Creating synthetic success response.",
-                request.ProductId);
+                productId);
 
             response = new HttpResponseMessage(HttpStatusCode.NotFound);
         }
@@ -180,7 +172,7 @@ public sealed class WmsGateway : IWmsGateway
 
                 _logger.LogWarning(
                     "WMS dispatch originally returned 404 for ProductId {ProductId}. Message: {Message}.",
-                    request.ProductId,
+                    productId,
                     ProductNotFoundMessage);
 
                 response.StatusCode = HttpStatusCode.OK;
@@ -201,7 +193,7 @@ public sealed class WmsGateway : IWmsGateway
             _logger.LogInformation(
                 "WMS dispatch normalized to {StatusCode} for ProductId {ProductId}. Message: {Message}.",
                 (int)response.StatusCode,
-                request.ProductId,
+                productId,
                 DispatchSuccessMessage);
 
             return Result.Success();
