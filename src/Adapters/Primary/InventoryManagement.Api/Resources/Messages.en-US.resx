@@ -136,12 +136,19 @@
 	<data name="product.acquisition_cost.currency_mismatch"><value>Acquisition cost currency must match supplier currency.</value></data>
 	<data name="product.acquisition_cost_usd.must_be_usd"><value>Acquisition cost in USD must use USD currency.</value></data>
 	<data name="product.acquire_date.required"><value>Acquire date is required.</value></data>
-	<data name="INTEGRATION_CANCELLED"><value>Integration was cancelled.</value></data>
-	<data name="WMS_INVALID_INPUT"><value>Invalid input for WMS integration.</value></data>
-	<data name="WMS_CREATE_FAILED"><value>Failed to create WMS record.</value></data>
-	<data name="WMS_DISPATCH_FAILED"><value>Failed to dispatch WMS record.</value></data>
-	<data name="AUDITLOG_INVALID_INPUT"><value>Invalid input for Audit Log integration.</value></data>
-	<data name="AUDITLOG_CREATE_FAILED"><value>Failed to create Audit Log record.</value></data>
-	<data name="EMAIL_INVALID_INPUT"><value>Invalid input for Email integration.</value></data>
-	<data name="EMAIL_SEND_FAILED"><value>Failed to send email.</value></data>
+	<data name="category.not_found"><value>Category not found.</value></data>
+	<data name="category.shortcode_already_exists"><value>Category shortcode already exists.</value></data>
+	<data name="category.has_children"><value>Category has children.</value></data>
+	<data name="category.has_products"><value>Category has products.</value></data>
+	<data name="supplier.not_found"><value>Supplier not found.</value></data>
+	<data name="supplier.email_already_exists"><value>Supplier email already exists.</value></data>
+	<data name="product.not_found"><value>Product not found.</value></data>
+	<data name="integration.cancelled"><value>Integration was cancelled.</value></data>
+	<data name="wms.invalid_input"><value>Invalid input for WMS integration.</value></data>
+	<data name="wms.create_failed"><value>Failed to create WMS record.</value></data>
+	<data name="wms.dispatch_failed"><value>Failed to dispatch WMS record.</value></data>
+	<data name="auditlog.invalid_input"><value>Invalid input for Audit Log integration.</value></data>
+	<data name="auditlog.create_failed"><value>Failed to create Audit Log record.</value></data>
+	<data name="email.invalid_input"><value>Invalid input for Email integration.</value></data>
+	<data name="email.send_failed"><value>Failed to send email.</value></data>
 </root>

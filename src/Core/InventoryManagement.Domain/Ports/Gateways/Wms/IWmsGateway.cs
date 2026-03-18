@@ -9,6 +9,6 @@ public interface IWmsGateway
         CancellationToken cancellationToken = default);
 
     Task<Result> DispatchProductAsync(
-        WmsDispatchProductRequestDto request,
+        Guid productId,
         CancellationToken cancellationToken = default);
 }

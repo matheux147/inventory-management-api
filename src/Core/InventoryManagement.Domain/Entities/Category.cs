@@ -20,7 +20,12 @@ public class Category : Entity
     {
     }
 
-    public Category(string name, CategoryShortcode shortcode, Category? parentCategory = null)
+    public static Category Create(string name, CategoryShortcode shortcode, Category? parentCategory = null)
+    {
+        return new Category(name, shortcode, parentCategory);
+    }
+
+    private Category(string name, CategoryShortcode shortcode, Category? parentCategory = null)
     {
         SetName(name);
         SetShortcode(shortcode);
