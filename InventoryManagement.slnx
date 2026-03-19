@@ -19,4 +19,7 @@
     <Project Path="tests/InventoryManagement.Application.Tests/InventoryManagement.Application.Tests.csproj" Id="ea8de778-a029-489d-be53-84e63a62e7c7" />
     <Project Path="tests/InventoryManagement.Domain.Tests/InventoryManagement.Domain.Tests.csproj" Id="92a9d894-db68-45aa-ad06-0f8a8edd3b9c" />
   </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
 </Solution>
