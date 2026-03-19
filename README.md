@@ -1,6 +1,6 @@
 # Inventory Management API
 
-A RESTful API built with .NET 8 for managing an inventory system including categories, suppliers, and products. This project demonstrates clean code, good design, and testing practices while handling product lifecycle management and external service integrations.
+A RESTful API built with .NET 10 for managing an inventory system including categories, suppliers, and products. This project demonstrates clean code, good design, and testing practices while handling product lifecycle management and external service integrations.
 
 ## Architecture & Patterns
 
