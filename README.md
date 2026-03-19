@@ -9,6 +9,7 @@ This application follows **Hexagonal Architecture (Ports and Adapters)** princip
 - **Core**: Contains the central business rules, `Domain` entities, and `Application` use cases. It has no dependencies on external frameworks.
 - **Primary Adapters**: The entry points to the application, containing the ASP.NET Core REST API.
 - **Secondary Adapters**: Implementations of external concerns such as Database Persistence, and integrations with external systems (WMS, Audit Log, Email).
+- **Hybrid Distributed Caches**: Used for caching data across the application to improve performance and reduce load on external systems.
 - **Unit Tests**: Focused on testing the core business logic in isolation, without dependencies on external systems.
 
 **Key Patterns Used:**
@@ -16,6 +17,7 @@ This application follows **Hexagonal Architecture (Ports and Adapters)** princip
 - Repository Pattern for data access abstraction
 - Result Pattern for robust error handling
 - Repository Pattern (for data persistence)
+- Distributed Caching for performance optimization
 
 ## Business Rules Overview
 
