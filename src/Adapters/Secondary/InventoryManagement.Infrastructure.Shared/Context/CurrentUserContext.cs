@@ -5,7 +5,7 @@ namespace InventoryManagement.Infrastructure.Shared.Context;
 
 public sealed class CurrentUserContext(IHttpContextAccessor httpContextAccessor) : ICurrentUserContext
 {
-    private static readonly Guid DefaultUserId = new();
+    private static readonly Guid DefaultUserId = Guid.NewGuid();
     private const string DefaultEmail = "system@inventory.local";
 
     public Guid UserId
