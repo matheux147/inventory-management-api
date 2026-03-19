@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Adapters/" />
+  <Folder Name="/src/Adapters/Primary/">
+    <Project Path="src/Adapters/Primary/InventoryManagement.Api/InventoryManagement.Api.csproj" Id="fcf4930f-e0de-4c5b-a3c0-c1d6ceac65fc" />
+  </Folder>
+  <Folder Name="/src/Adapters/Secondary/">
+    <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.AuditLog/InventoryManagement.Infrastructure.AuditLog.csproj" Id="5e9ce003-d048-471d-b694-37d9672644e9" />
+    <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.Email/InventoryManagement.Infrastructure.Email.csproj" Id="650c6dac-e114-42d7-8dc0-300582127e27" />
+    <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.Persistence/InventoryManagement.Infrastructure.Persistence.csproj" Id="64308e85-e90b-4056-b157-793362b60ac5" />
+    <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.Shared/InventoryManagement.Infrastructure.Shared.csproj" Id="9923f69c-974c-426f-a5b7-2460dd2ffc30" />
+    <Project Path="src/Adapters/Secondary/InventoryManagement.Infrastructure.Wms/InventoryManagement.Infrastructure.Wms.csproj" Id="d96ac54d-93e7-45c1-844b-b519681e9459" />
+  </Folder>
+  <Folder Name="/src/Core/">
+    <Project Path="src/Core/InventoryManagement.Application/InventoryManagement.Application.csproj" Id="bf856992-8663-49f0-89fa-ad5b0f59ab99" />
+    <Project Path="src/Core/InventoryManagement.Domain/InventoryManagement.Domain.csproj" Id="146d3773-0234-42cd-94f8-d04bfbd2ce9b" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/InventoryManagement.Application.Tests/InventoryManagement.Application.Tests.csproj" Id="ea8de778-a029-489d-be53-84e63a62e7c7" />
+    <Project Path="tests/InventoryManagement.Domain.Tests/InventoryManagement.Domain.Tests.csproj" Id="92a9d894-db68-45aa-ad06-0f8a8edd3b9c" />
+  </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+</Solution>

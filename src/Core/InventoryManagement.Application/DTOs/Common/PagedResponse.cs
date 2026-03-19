@@ -1,0 +1,8 @@
+﻿namespace InventoryManagement.Application.DTOs.Common;
+
+public sealed record PagedResponse<T>(
+    IReadOnlyList<T> Items,
+    int TotalCount,
+    int PageNumber,
+    int PageSize,
+    int TotalPages);

@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="shared.amount.negative" xml:space="preserve">
+    <value>Amount cannot be negative.</value>
+  </data>
+  <data name="shared.currency.required" xml:space="preserve">
+    <value>Currency is required.</value>
+  </data>
+  <data name="shared.country_code.required" xml:space="preserve">
+    <value>Country code is required.</value>
+  </data>
+  <data name="shared.country_code.invalid" xml:space="preserve">
+    <value>Country code must be a valid ISO-3166 alpha-2 style code with 2 letters.</value>
+  </data>
+  <data name="shared.currency_code.required" xml:space="preserve">
+    <value>Currency code is required.</value>
+  </data>
+  <data name="shared.currency_code.invalid" xml:space="preserve">
+    <value>Currency code must be a valid ISO-4217 style code with 3 letters.</value>
+  </data>
+  <data name="shared.category_shortcode.required" xml:space="preserve">
+    <value>Category shortcode is required.</value>
+  </data>
+  <data name="shared.category_shortcode.invalid" xml:space="preserve">
+    <value>Category shortcode must contain only letters, numbers, underscore or hyphen.</value>
+  </data>
+  <data name="shared.email.required" xml:space="preserve">
+    <value>Email is required.</value>
+  </data>
+  <data name="shared.email.invalid" xml:space="preserve">
+    <value>Email is invalid.</value>
+  </data>
+  <data name="supplier.name.required" xml:space="preserve">
+    <value>Supplier name is required.</value>
+  </data>
+  <data name="supplier.email.required" xml:space="preserve">
+    <value>Supplier email is required.</value>
+  </data>
+  <data name="supplier.currency.required" xml:space="preserve">
+    <value>Supplier currency is required.</value>
+  </data>
+  <data name="supplier.country.required" xml:space="preserve">
+    <value>Supplier country is required.</value>
+  </data>
+  <data name="category.parent.invalid" xml:space="preserve">
+    <value>A category cannot be its own parent.</value>
+  </data>
+  <data name="category.name.required" xml:space="preserve">
+    <value>Category name is required.</value>
+  </data>
+  <data name="category.shortcode.required" xml:space="preserve">
+    <value>Category shortcode is required.</value>
+  </data>
+  <data name="product.sell.cancelled" xml:space="preserve">
+    <value>Cancelled product cannot be sold.</value>
+  </data>
+  <data name="product.sell.returned" xml:space="preserve">
+    <value>Returned product cannot be sold.</value>
+  </data>
+  <data name="product.sell.already_sold" xml:space="preserve">
+    <value>Product is already sold.</value>
+  </data>
+  <data name="product.sell.invalid_date" xml:space="preserve">
+    <value>Sold date cannot be earlier than acquire date.</value>
+  </data>
+  <data name="product.cancel.already_cancelled" xml:space="preserve">
+    <value>Product is already cancelled.</value>
+  </data>
+  <data name="product.cancel.returned" xml:space="preserve">
+    <value>Returned product cannot be cancelled.</value>
+  </data>
+  <data name="product.cancel.invalid_acquire_date" xml:space="preserve">
+    <value>Cancel date cannot be earlier than acquire date.</value>
+  </data>
+  <data name="product.cancel.invalid_sold_date" xml:space="preserve">
+    <value>Cancel date cannot be earlier than sold date.</value>
+  </data>
+  <data name="product.return.already_returned" xml:space="preserve">
+    <value>Product is already returned.</value>
+  </data>
+  <data name="product.return.cancelled" xml:space="preserve">
+    <value>Cancelled product cannot be returned.</value>
+  </data>
+  <data name="product.return.only_sold" xml:space="preserve">
+    <value>Only sold products can be returned.</value>
+  </data>
+  <data name="product.return.sold_date_missing" xml:space="preserve">
+    <value>Sold date must exist before returning a product.</value>
+  </data>
+  <data name="product.return.invalid_date" xml:space="preserve">
+    <value>Return date cannot be earlier than sold date.</value>
+  </data>
+  <data name="product.supplier.required" xml:space="preserve">
+    <value>Supplier is required.</value>
+  </data>
+  <data name="product.category.required" xml:space="preserve">
+    <value>Category is required.</value>
+  </data>
+  <data name="product.description.required" xml:space="preserve">
+    <value>Product description is required.</value>
+  </data>
+  <data name="product.acquisition_cost.required" xml:space="preserve">
+    <value>Acquisition cost is required.</value>
+  </data>
+  <data name="product.acquisition_cost_usd.required" xml:space="preserve">
+    <value>Acquisition cost in USD is required.</value>
+  </data>
+  <data name="product.acquisition_cost.currency_mismatch" xml:space="preserve">
+    <value>Acquisition cost currency must match supplier currency.</value>
+  </data>
+  <data name="product.acquisition_cost_usd.must_be_usd" xml:space="preserve">
+    <value>Acquisition cost in USD must use USD currency.</value>
+  </data>
+  <data name="product.acquire_date.required" xml:space="preserve">
+    <value>Acquire date is required.</value>
+  </data>
+  <data name="category.not_found" xml:space="preserve">
+    <value>Category not found.</value>
+  </data>
+  <data name="category.shortcode_already_exists" xml:space="preserve">
+    <value>Category shortcode already exists.</value>
+  </data>
+  <data name="category.has_children" xml:space="preserve">
+    <value>Category has children.</value>
+  </data>
+  <data name="category.has_products" xml:space="preserve">
+    <value>Category has products.</value>
+  </data>
+  <data name="supplier.not_found" xml:space="preserve">
+    <value>Supplier not found.</value>
+  </data>
+  <data name="supplier.email_already_exists" xml:space="preserve">
+    <value>Supplier email already exists.</value>
+  </data>
+  <data name="product.not_found" xml:space="preserve">
+    <value>Product not found.</value>
+  </data>
+  <data name="integration.cancelled" xml:space="preserve">
+    <value>Integration was cancelled.</value>
+  </data>
+  <data name="wms.invalid_input" xml:space="preserve">
+    <value>Invalid input for WMS integration.</value>
+  </data>
+  <data name="wms.create_failed" xml:space="preserve">
+    <value>Failed to create WMS record.</value>
+  </data>
+  <data name="wms.dispatch_failed" xml:space="preserve">
+    <value>Failed to dispatch WMS record.</value>
+  </data>
+  <data name="auditlog.invalid_input" xml:space="preserve">
+    <value>Invalid input for Audit Log integration.</value>
+  </data>
+  <data name="auditlog.create_failed" xml:space="preserve">
+    <value>Failed to create Audit Log record.</value>
+  </data>
+  <data name="email.invalid_input" xml:space="preserve">
+    <value>Invalid input for Email integration.</value>
+  </data>
+  <data name="email.invalid_input1" xml:space="preserve">
+    <value>Invalid input for Email integration.</value>
+  </data>
+  <data name="email.send_failed" xml:space="preserve">
+    <value>Failed to send email.</value>
+  </data>
+</root>
