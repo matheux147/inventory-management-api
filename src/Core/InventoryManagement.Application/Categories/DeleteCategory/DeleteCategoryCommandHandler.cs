@@ -1,6 +1,8 @@
-﻿using InventoryManagement.Application.Abstractions.Errors;
+﻿using InventoryManagement.Application.Abstractions.Caching;
+using InventoryManagement.Application.Abstractions.Errors;
 using InventoryManagement.Application.Abstractions.Messaging;
 using InventoryManagement.Domain.Abstractions;
+using InventoryManagement.Domain.Ports.Cache;
 using InventoryManagement.Domain.Ports.Context;
 using InventoryManagement.Domain.Ports.Repositories;
 
@@ -9,7 +11,8 @@ namespace InventoryManagement.Application.Categories.DeleteCategory;
 public sealed class DeleteCategoryCommandHandler(
     ICategoryRepository categoryRepository,
     IProductRepository productRepository,
-    IUnitOfWork unitOfWork)
+    IUnitOfWork unitOfWork,
+    IAppCache appCache)
     : ICommandHandler<DeleteCategoryCommand>
 {
     public async Task<Result> Handle(
@@ -40,6 +43,8 @@ public sealed class DeleteCategoryCommandHandler(
         categoryRepository.Delete(category);
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
+
+        await appCache.RemoveByTagAsync(CacheTags.Categories, cancellationToken);
 
         return Result.Success();
     }

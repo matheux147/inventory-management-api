@@ -28,7 +28,7 @@ public static class ServiceCollectionExtensions
         services.AddEmailInfrastructure(
             configuration.GetSection("Integrations:Email"));
 
-        services.AddSharedInfrastructure();
+        services.AddSharedInfrastructure(configuration);
 
         services.AddLocalization(options =>
         {

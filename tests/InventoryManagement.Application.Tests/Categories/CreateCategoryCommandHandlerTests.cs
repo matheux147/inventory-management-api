@@ -2,6 +2,7 @@ using InventoryManagement.Application.Abstractions.Errors;
 using InventoryManagement.Application.Categories.CreateCategory;
 using InventoryManagement.Domain.Abstractions;
 using InventoryManagement.Domain.Entities;
+using InventoryManagement.Domain.Ports.Cache;
 using InventoryManagement.Domain.Ports.Context;
 using InventoryManagement.Domain.Ports.Repositories;
 using InventoryManagement.Domain.ValueObjects;
@@ -13,13 +14,18 @@ public class CreateCategoryCommandHandlerTests
 {
     private readonly Mock<ICategoryRepository> _categoryRepositoryMock;
     private readonly Mock<IUnitOfWork> _unitOfWorkMock;
+    private readonly Mock<IAppCache> _appCacheMock;
     private readonly CreateCategoryCommandHandler _handler;
 
     public CreateCategoryCommandHandlerTests()
     {
         _categoryRepositoryMock = new Mock<ICategoryRepository>();
         _unitOfWorkMock = new Mock<IUnitOfWork>();
-        _handler = new CreateCategoryCommandHandler(_categoryRepositoryMock.Object, _unitOfWorkMock.Object);
+        _appCacheMock = new Mock<IAppCache>();
+        _handler = new CreateCategoryCommandHandler(
+            _categoryRepositoryMock.Object, 
+            _unitOfWorkMock.Object,
+            _appCacheMock.Object);
     }
 
     [Fact]

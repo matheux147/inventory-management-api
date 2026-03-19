@@ -1,9 +1,11 @@
-﻿using InventoryManagement.Application.Abstractions.Errors;
+﻿using InventoryManagement.Application.Abstractions.Caching;
+using InventoryManagement.Application.Abstractions.Errors;
 using InventoryManagement.Application.Abstractions.Messaging;
 using InventoryManagement.Application.DTOs.Categories;
 using InventoryManagement.Domain.Abstractions;
 using InventoryManagement.Domain.Entities;
 using InventoryManagement.Domain.Exceptions;
+using InventoryManagement.Domain.Ports.Cache;
 using InventoryManagement.Domain.Ports.Context;
 using InventoryManagement.Domain.Ports.Repositories;
 using InventoryManagement.Domain.ValueObjects;
@@ -12,7 +14,8 @@ namespace InventoryManagement.Application.Categories.CreateCategory;
 
 public sealed class CreateCategoryCommandHandler(
     ICategoryRepository categoryRepository,
-    IUnitOfWork unitOfWork)
+    IUnitOfWork unitOfWork,
+    IAppCache appCache)
     : ICommandHandler<CreateCategoryCommand, CategoryResponseDto>
 {
     public async Task<Result<CategoryResponseDto>> Handle(
@@ -49,6 +52,8 @@ public sealed class CreateCategoryCommandHandler(
 
             await categoryRepository.AddAsync(category, cancellationToken);
             await unitOfWork.SaveChangesAsync(cancellationToken);
+
+            await appCache.RemoveByTagAsync(CacheTags.Categories, cancellationToken);
 
             return Result<CategoryResponseDto>.Success(category.Map());
         }
