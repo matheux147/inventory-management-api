@@ -9,6 +9,7 @@ This application follows **Hexagonal Architecture (Ports and Adapters)** princip
 - **Core**: Contains the central business rules, `Domain` entities, and `Application` use cases. It has no dependencies on external frameworks.
 - **Primary Adapters**: The entry points to the application, containing the ASP.NET Core REST API.
 - **Secondary Adapters**: Implementations of external concerns such as Database Persistence, and integrations with external systems (WMS, Audit Log, Email).
+- **Unit Tests**: Focused on testing the core business logic in isolation, without dependencies on external systems.
 
 **Key Patterns Used:**
 - CQRS (Command and Query Responsibility Segregation) / Mediator Pattern
