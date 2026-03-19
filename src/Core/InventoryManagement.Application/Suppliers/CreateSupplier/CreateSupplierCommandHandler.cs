@@ -1,9 +1,11 @@
-﻿using InventoryManagement.Application.Abstractions.Errors;
+﻿using InventoryManagement.Application.Abstractions.Caching;
+using InventoryManagement.Application.Abstractions.Errors;
 using InventoryManagement.Application.Abstractions.Messaging;
 using InventoryManagement.Application.DTOs.Suppliers;
 using InventoryManagement.Domain.Abstractions;
 using InventoryManagement.Domain.Entities;
 using InventoryManagement.Domain.Exceptions;
+using InventoryManagement.Domain.Ports.Cache;
 using InventoryManagement.Domain.Ports.Context;
 using InventoryManagement.Domain.Ports.Repositories;
 using InventoryManagement.Domain.ValueObjects;
@@ -12,7 +14,8 @@ namespace InventoryManagement.Application.Suppliers.CreateSupplier;
 
 public sealed class CreateSupplierCommandHandler(
     ISupplierRepository supplierRepository,
-    IUnitOfWork unitOfWork)
+    IUnitOfWork unitOfWork,
+    IAppCache appCache)
     : ICommandHandler<CreateSupplierCommand, SupplierResponseDto>
 {
     public async Task<Result<SupplierResponseDto>> Handle(
@@ -41,6 +44,8 @@ public sealed class CreateSupplierCommandHandler(
 
             await supplierRepository.AddAsync(supplier, cancellationToken);
             await unitOfWork.SaveChangesAsync(cancellationToken);
+
+            await appCache.RemoveByTagAsync(CacheTags.Suppliers, cancellationToken);
 
             return Result<SupplierResponseDto>.Success(supplier.Map());
         }

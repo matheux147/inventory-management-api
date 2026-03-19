@@ -1,6 +1,7 @@
 using InventoryManagement.Application.Abstractions.Errors;
 using InventoryManagement.Application.Categories.DeleteCategory;
 using InventoryManagement.Domain.Entities;
+using InventoryManagement.Domain.Ports.Cache;
 using InventoryManagement.Domain.Ports.Context;
 using InventoryManagement.Domain.Ports.Repositories;
 using InventoryManagement.Domain.ValueObjects;
@@ -13,6 +14,7 @@ public class DeleteCategoryCommandHandlerTests
     private readonly Mock<ICategoryRepository> _categoryRepositoryMock;
     private readonly Mock<IProductRepository> _productRepositoryMock;
     private readonly Mock<IUnitOfWork> _unitOfWorkMock;
+    private readonly Mock<IAppCache> _appCacheMock;
     private readonly DeleteCategoryCommandHandler _handler;
 
     public DeleteCategoryCommandHandlerTests()
@@ -20,10 +22,12 @@ public class DeleteCategoryCommandHandlerTests
         _categoryRepositoryMock = new Mock<ICategoryRepository>();
         _productRepositoryMock = new Mock<IProductRepository>();
         _unitOfWorkMock = new Mock<IUnitOfWork>();
+        _appCacheMock = new Mock<IAppCache>();
         _handler = new DeleteCategoryCommandHandler(
             _categoryRepositoryMock.Object,
             _productRepositoryMock.Object,
-            _unitOfWorkMock.Object);
+            _unitOfWorkMock.Object,
+            _appCacheMock.Object);
     }
 
     [Fact]

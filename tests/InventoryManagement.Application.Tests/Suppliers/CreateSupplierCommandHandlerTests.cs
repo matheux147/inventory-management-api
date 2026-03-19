@@ -2,6 +2,7 @@ using InventoryManagement.Application.Abstractions.Errors;
 using InventoryManagement.Application.Suppliers.CreateSupplier;
 using InventoryManagement.Domain.Abstractions;
 using InventoryManagement.Domain.Entities;
+using InventoryManagement.Domain.Ports.Cache;
 using InventoryManagement.Domain.Ports.Context;
 using InventoryManagement.Domain.Ports.Repositories;
 using InventoryManagement.Domain.ValueObjects;
@@ -13,13 +14,18 @@ public class CreateSupplierCommandHandlerTests
 {
     private readonly Mock<ISupplierRepository> _supplierRepositoryMock;
     private readonly Mock<IUnitOfWork> _unitOfWorkMock;
+    private readonly Mock<IAppCache> _appCacheMock;
     private readonly CreateSupplierCommandHandler _handler;
 
     public CreateSupplierCommandHandlerTests()
     {
         _supplierRepositoryMock = new Mock<ISupplierRepository>();
         _unitOfWorkMock = new Mock<IUnitOfWork>();
-        _handler = new CreateSupplierCommandHandler(_supplierRepositoryMock.Object, _unitOfWorkMock.Object);
+        _appCacheMock = new Mock<IAppCache>();
+        _handler = new CreateSupplierCommandHandler(
+            _supplierRepositoryMock.Object, 
+            _unitOfWorkMock.Object,
+            _appCacheMock.Object);
     }
 
     [Fact]

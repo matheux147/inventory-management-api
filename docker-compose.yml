@@ -14,8 +14,12 @@ services:
       ASPNETCORE_HTTP_PORTS: 8080
       ASPNETCORE_HTTPS_PORTS: 8081
       ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=InventoryManagementDb;User Id=sa;Password=Test@@123123;TrustServerCertificate=True;"
+      Cache__Redis__ConnectionString: "redis:6379"
+      Cache__Hybrid__LocalCacheExpirationSeconds: "20"
+      Cache__Hybrid__DistributedCacheExpirationSeconds: "60"
     depends_on:
       - sqlserver
+      - redis
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -28,5 +32,14 @@ services:
     volumes:
       - sqlserver_data:/var/opt/mssql
 
+  redis:
+    image: redis:7-alpine
+    container_name: inventorymanagement.redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
 volumes:
   sqlserver_data:
+  redis_data:
