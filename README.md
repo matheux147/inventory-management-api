@@ -41,6 +41,7 @@ The system manages three main entities:
 ## Tech Stack
 - **Framework**: .NET 10
 - **Database**: SQL Server (via Docker)
+- **Cache**: Cache + MemoryCache
 - **Environment**: Distributed via Docker and Docker Compose
 
 ## Running the Application
